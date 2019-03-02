@@ -8,6 +8,7 @@ obj_df['education'].replace(['11th', '10th', '7th-8th', '9th', '12th', '5th-6th'
 obj_df['education'].replace(['Bachelors', 'Masters', 'Prof-school', 'Doctorate'], 'Bachelors+', inplace=True)
 obj_df['marital_status'].replace(['Married-AF-spouse', 'Married-civ-spouse', 'Married-spouse-absent'], 'Married', inplace=True)
 obj_df['marital_status'].replace(['Separated'], 'Divorced', inplace=True)
+#decide to get rid of data with '?', missing data is rather small, decide not to use dummy variable
 obj_df = obj_df[obj_df.occupation != '?']
 obj_df = obj_df[obj_df.workclass != '?']
 obj_df = obj_df[obj_df.native_country != '?']
