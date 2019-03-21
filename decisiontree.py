@@ -34,6 +34,8 @@ workclass = obj_df['workclass']
 Marital_status_cleaned = {'marital_status': {'Widowed': 0, 'Married': 1, 'Divorced': 2, 'Never-married': 3}}
 obj_df.replace(Marital_status_cleaned, inplace=True)
 marital_status = obj_df['marital_status']
+#for some reason the number of white people in this data set is around 70%, and Asian + Amer-indian races only account for 2%
+#of data points, decide to just use a binary boolean variable to make model more accurate 
 obj_df['race'].replace(['Black', 'Asian-Pac-Islander', 'Amer-Indian-Eskimo'], 'Other', inplace=True)
 race_cleaned = {'race': {'Other': 0, 'White': 1}}
 obj_df.replace(race_cleaned, inplace=True)
