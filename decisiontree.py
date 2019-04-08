@@ -21,7 +21,7 @@ obj_df['workclass'].replace(['Federal-gov', 'Local-gov', 'State-gov'], 'Non-Priv
 obj_df['workclass'].replace(['Self-emp-inc'], 'Private', inplace=True)
 obj_df = obj_df[obj_df.workclass != 'Without-pay']
 adult_df = adult_df[adult_df.workclass != 'Without-pay']
-#turning object variables into integers 
+#turning object variables into integers, i.e 'cleaning data'
 data_cleanup = {'education': {'no_Bachelors+': 0, 'Bachelors+': 1},
 		    'sex': {'Female': 0, 'Male': 1}}
 obj_df.replace(data_cleanup, inplace=True)
