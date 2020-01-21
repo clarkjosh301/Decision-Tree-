@@ -8,7 +8,7 @@ obj_df['education'].replace(['11th', '10th', '7th-8th', '9th', '12th', '5th-6th'
 obj_df['education'].replace(['Bachelors', 'Masters', 'Prof-school', 'Doctorate'], 'Bachelors+', inplace=True)
 obj_df['marital_status'].replace(['Married-AF-spouse', 'Married-civ-spouse', 'Married-spouse-absent'], 'Married', inplace=True)
 obj_df['marital_status'].replace(['Separated'], 'Divorced', inplace=True)
-#decide to get rid of data with '?', missing data is rather small, decide not to use dummy variable
+#decide to get rid of data with '?', missing data is rather small so I don't need to fill in missing data points
 obj_df = obj_df[obj_df.occupation != '?']
 obj_df = obj_df[obj_df.workclass != '?']
 obj_df = obj_df[obj_df.native_country != '?']
@@ -35,7 +35,7 @@ Marital_status_cleaned = {'marital_status': {'Widowed': 0, 'Married': 1, 'Divorc
 obj_df.replace(Marital_status_cleaned, inplace=True)
 marital_status = obj_df['marital_status']
 #for some reason the number of white people in this data set is around 70%, and Asian + Amer-indian races only account for 2%
-#of data points, decide to just use a binary/boolean variable to make model more accurate. Again, less trees = more accuracy
+#of data points, decide to just use a binary/boolean variable to make model more accurate.
 obj_df['race'].replace(['Black', 'Asian-Pac-Islander', 'Amer-Indian-Eskimo'], 'Other', inplace=True)
 race_cleaned = {'race': {'Other': 0, 'White': 1}}
 obj_df.replace(race_cleaned, inplace=True)
